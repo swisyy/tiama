@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sales - TIAMAL LTD</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navigation with Logo */
+    nav.main-nav {
+      background: #004466;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    nav.main-nav .logo {
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    nav.main-nav ul {
+      display: flex;
+      list-style: none;
+      flex: 1;
+      justify-content: center;
+      padding-right: 200px;
+    }
+
+    nav.main-nav li {
+      margin: 0 15px;
+    }
+
+    nav.main-nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 0;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    nav.main-nav a:hover {
+      color: #ffcc00;
+    }
+
+    /* Slider */
+    .slider {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .slides img {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .slider button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .slider .prev { left: 10px; }
+    .slider .next { right: 10px; }
+
+    /* Sales Content */
+    .sales-content {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .sales-content h2 {
+      color: #004466;
+      margin-bottom: 20px;
+    }
+    .sales-content p {
+      margin-bottom: 20px;
+    }
+    .sales-content ul {
+      margin-left: 20px;
+      list-style: disc;
+    }
+
+    /* Footer */
+    footer {
+      background: #004466;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+    footer address {
+      font-style: normal;
+      margin-bottom: 10px;
+    }
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation with Logo -->
+  <nav class="main-nav">
+    <img src="tiama-company-.png" alt="TIAMAL LTD Logo" class="logo">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="company.html">Company Profile</a></li>
+      <li><a href="sales.html">Sales</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Image Slider -->
+  <div class="slider">
+    <button class="prev">&#10094;</button>
+    <div class="slides">
+      <img src="compu.jpg" alt="Slide 1">
+      <img src="2577822.jpg" alt="Slide 2">
+      <img src="3184346.jpg" alt="Slide 3">
+    </div>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <!-- Sales Content -->
+  <section class="sales-content">
+    <p>
+      We aim to respond promptly to all enquiries and to provide quotations which accurately and comprehensively fulfil the customer's requirements.
+    </p>
+    <p>
+      We currently represent two world-class companies: <strong>Norgren</strong> and <strong>BSI British Standards</strong>. It is our intention to retain a selected portfolio of representations, thus providing a dedicated and high level of service for each manufacturer/publisher and their respective end-users.
+    </p>
+    <p>
+      We are delighted to have become an authorised distributor of <strong>BSI British Standards</strong>. BSI British Standards supplies not just British Standards but standards from all of the foremost international standards bodies. We feel that BSI British Standards is an addition to our portfolio which further enhances the range and quality of products and services which we can offer to our clients.
+    </p>
+    <p>
+      In addition to products available from our represented manufacturers, TIAMA also sources and supplies materials from other manufacturers—primarily in Europe and the USA.
+    </p>
+    <p>
+      Having associated companies in the U.K. and U.S.A., TIAMA is uniquely positioned to deliver product from those manufacturers to Libya with the best cost and delivery time.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <address>
+      Tripoli, Tajoura, Algamodi Area<br>
+      Phone: +218 21-712-2013 / 8036 • Fax: +218 21-369-9130<br>
+      Email: <a href="mailto:sales@tiamaltd.com">sales@tiamaltd.com</a>
+    </address>
+    <p>&copy; 2025 TIAMAL LTD. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const slides = document.querySelector('.slides');
+    const images = document.querySelectorAll('.slides img');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    let index = 0;
+
+    function showSlide(n) {
+      index = (n + images.length) % images.length;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prev.addEventListener('click', () => showSlide(index - 1));
+    next.addEventListener('click', () => showSlide(index + 1));
+
+    setInterval(() => showSlide(index + 1), 4000);
+  </script>
+
+</body>
+</html>

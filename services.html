@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sales - TIAMAL LTD</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navigation with Logo */
+    nav.main-nav {
+      background: #004466;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    nav.main-nav .logo {
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    nav.main-nav ul {
+      display: flex;
+      list-style: none;
+      flex: 1;
+      justify-content: center;
+      padding-right: 200PX;
+    }
+
+    nav.main-nav li {
+      margin: 0 15px;
+    }
+
+    nav.main-nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 0;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    nav.main-nav a:hover {
+      color: #ffcc00;
+    }
+
+    /* Slider */
+    .slider {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .slides img {
+      flex: 0 0 100%; /* Each image takes full width */
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .slider button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .slider .prev { left: 10px; }
+    .slider .next { right: 10px; }
+
+    /* Sales Content */
+    .sales-content {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .sales-content h2 {
+      color: #004466;
+      margin-bottom: 20px;
+    }
+
+    .sales-content p {
+      margin-bottom: 20px;
+    }
+
+    .sales-content ul {
+      margin-left: 20px;
+      list-style: disc;
+    }
+
+    /* Footer */
+    footer {
+      background: #004466;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    footer address {
+      font-style: normal;
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation with Logo -->
+  <nav class="main-nav">
+    <img src="tiama-company-.png" alt="TIAMAL LTD Logo" class="logo">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="company.html">Company Profile</a></li>
+      <li><a href="sales.html">Sales</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Image Slider -->
+  <div class="slider">
+    <button class="prev">&#10094;</button>
+    <div class="slides">
+      <img src="compu.jpg" alt="Slide 1">
+      <img src="2577822.jpg" alt="Slide 2">
+      <img src="3184346.jpg" alt="Slide 3">
+    </div>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <!-- Sales Content -->
+  <section class="sales-content">
+    <p>
+      The primary function of the company is the efficient supply of goods and services to its customers. To this end, we provide a full complement of technical, procurement and logistical services.
+    </p>
+    <p>
+      We provide on-site installation, commissioning and training services for all of the products in our portfolio.
+    </p>
+    <p>
+      A wide range of technical, design and consultancy services are also provided by the manufacturers represented by us.
+    </p>
+    <p>
+      We supply scientific journals, publications and all engineering standards in print, CD or online versions. Both specific publications and general subscription services can be supplied.
+    </p>
+    <p>
+      We are an authorised distributor <strong>of British Standards</strong>.
+    </p>
+    <p>
+      We also provide Conformity Services via our partner <a href="http://www.libyanconfirmatybureau.com" target="_blank">www.libyanconfirmatybureau.com</a>.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <address>
+      Tripoli, Tajoura, Algamodi Area<br>
+      Phone: +218 21-712-2013 / 8036 • Fax: +218 21-369-9130<br>
+      Email: <a href="mailto:sales@tiamaltd.com">sales@tiamaltd.com</a>
+    </address>
+    <p>&copy; 2025 TIAMAL LTD. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const slides = document.querySelector('.slides');
+    const images = document.querySelectorAll('.slides img');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    let index = 0;
+
+    function showSlide(n) {
+      index = (n + images.length) % images.length;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prev.addEventListener('click', () => showSlide(index - 1));
+    next.addEventListener('click', () => showSlide(index + 1));
+
+    setInterval(() => showSlide(index + 1), 4000); // Auto-slide every 4s
+  </script>
+
+</body>
+</html>
